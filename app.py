@@ -9,6 +9,8 @@ app = Flask(__name__)
 # Configure Datadog tracing
 patch_all()
 # Configure logging
+logger = logging.getLogger('app')
+logger.setLevel(logging.INFO)
 log_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s '
                                    '[in %(pathname)s:%(lineno)d]')
 log_file_handler = RotatingFileHandler('/home/pi/flask/logs/app.log', maxBytes=100000, backupCount=10)
